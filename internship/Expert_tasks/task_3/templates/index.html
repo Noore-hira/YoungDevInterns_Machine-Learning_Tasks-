@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Species Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        input[type="text"], button {
+            margin: 10px;
+            padding: 10px;
+            width: 90%;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iris Species Predictor</h1>
+    <form method="POST" action="/predict">
+        <input type="text" name="sepal_length" placeholder="Sepal Length (cm)" required>
+        <input type="text" name="sepal_width" placeholder="Sepal Width (cm)" required>
+        <input type="text" name="petal_length" placeholder="Petal Length (cm)" required>
+        <input type="text" name="petal_width" placeholder="Petal Width (cm)" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+
+    {% if error %}
+    <h2 style="color: red;">{{ error }}</h2>
+    {% endif %}
+</body>
+</html>
